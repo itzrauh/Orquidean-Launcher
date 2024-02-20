@@ -1,7 +1,7 @@
 {
     "name": "Orquidean-Launcher",
     "preductname": "Orquidean Launcher",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Launcher oficial de Orquidean Studios",
     "main": "src/app.js",
     "author": {

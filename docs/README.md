@@ -24,8 +24,8 @@ las personas puedan hacer forks de ellos para poder hacer sus propios launchers.
 | Linux x64 | Orquidean-Launcher-linux-x86_64.AppImage |
 
 
-<img src="https://simpleicons.org/icons/windows.svg" alt="Windows Logo" width="15" height="15" style="fill: 0078D4;"> Windows: [Descargar x64](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.0/Orquidean-Launcher-win-x64.exe)
+<img src="https://simpleicons.org/icons/windows.svg" alt="Windows Logo" width="15" height="15" style="fill: 0078D4;"> Windows: [Descargar x64](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.1/Orquidean-Launcher-win-x64.exe)
 
-<img src="https://simpleicons.org/icons/apple.svg" alt="macOS Logo" width="15" height="15" style="fill: FFFFFF;"> macOS: [Descargar x64](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.0/Orquidean-Launcher-mac-x64.dmg) [Descargar arm64](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.0/Orquidean-Launcher-mac-arm64.dmg)
+<img src="https://simpleicons.org/icons/apple.svg" alt="macOS Logo" width="15" height="15" style="fill: FFFFFF;"> macOS: [Descargar x64](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.1/Orquidean-Launcher-mac-x64.dmg) [Descargar arm64](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.1/Orquidean-Launcher-mac-arm64.dmg)
 
-<img src="https://simpleicons.org/icons/linux.svg" alt="Linux Logo" width="15" height="15" style="fill: FCC624;"> Linux: [Descargar AppImage](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.0/Orquidean-Launcher-linux-x86_64.AppImage)
+<img src="https://simpleicons.org/icons/linux.svg" alt="Linux Logo" width="15" height="15" style="fill: FCC624;"> Linux: [Descargar AppImage](https://github.com/itzrauh/Orquidean-Launcher/releases/download/1.1/Orquidean-Launcher-linux-x86_64.AppImage)
