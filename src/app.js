@@ -1,5 +1,5 @@
 /**
- * @author Luuxis
+ * @author Ragnarokpuntoexe
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
@@ -23,6 +23,8 @@ if (dev) {
     app.setPath('userData', appPath);
     app.setPath('appData', appdata)
 }
+
+const gotTheLock = app.requestSingleInstanceLock();
 
 if (!app.requestSingleInstanceLock()) app.quit();
 else app.whenReady().then(() => {
@@ -49,14 +51,6 @@ ipcMain.on('update-window-progress-load', () => UpdateWindow.getWindow().setProg
 ipcMain.handle('path-user-data', () => app.getPath('userData'))
 ipcMain.handle('appData', e => app.getPath('appData'))
 
-ipcMain.on('main-window-maximize', () => {
-    if (MainWindow.getWindow().isMaximized()) {
-        MainWindow.getWindow().unmaximize();
-    } else {
-        MainWindow.getWindow().maximize();
-    }
-})
-
 ipcMain.on('main-window-hide', () => MainWindow.getWindow().hide())
 ipcMain.on('main-window-show', () => MainWindow.getWindow().show())
 
@@ -72,6 +66,77 @@ ipcMain.handle('is-dark-theme', (_, theme) => {
 
 app.on('window-all-closed', () => app.quit());
 
+const rpc = require('discord-rpc');
+let client = new rpc.Client({ transport: 'ipc' });
+const pkg = require('../package.json');
+
+let startedAppTime = Date.now();
+
+ipcMain.on('new-status-discord', async () => {
+    client.login({ clientId: '1209514395454017616' });
+    client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+            pid: process.pid,
+            activity: {
+                details: `En el Menú Inicial...`,
+                assets: {
+                    large_image: 'icon',
+                    large_text: 'Orquidean Launcher',
+                },
+                instance: true,
+                timestamps: {
+                    start: startedAppTime
+                }
+            },
+        });
+    });
+});
+
+
+ipcMain.on('new-status-discord-jugando', async (event, statusdiscord) => {
+    console.log(statusdiscord)
+    if (client) await client.destroy();
+    client.login({ clientId: '1209514395454017616' });
+    client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+            pid: process.pid,
+            activity: {
+                details: statusdiscord,
+                assets: {
+                    large_image: 'icon',
+                    large_text: 'Orquidean Launcher',
+                },
+                instance: true,
+                timestamps: {
+                    start: startedAppTime
+                }
+            },
+        });
+    });
+});
+
+ipcMain.on('delete-and-new-status-discord', async () => {
+    if (client) client.destroy();
+    client = new rpc.Client({ transport: 'ipc' });
+    client.login({ clientId: '1209514395454017616' });
+    client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+            pid: process.pid,
+            activity: {
+                details: 'En el Menú Inicial...',
+                assets: {
+                    large_image: 'icon',
+                    large_text: 'Orquidean Launcher',
+                },
+                instance: true,
+                timestamps: {
+                    start: startedAppTime
+                }
+            },
+        });
+    });
+});
+
 autoUpdater.autoDownload = false;
 
 ipcMain.handle('update-app', async () => {
@@ -86,6 +151,8 @@ ipcMain.handle('update-app', async () => {
         })
     })
 })
+
+
 
 autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
