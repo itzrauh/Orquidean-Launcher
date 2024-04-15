@@ -5,6 +5,8 @@
 import { config, database, logger, changePanel, appdata, setStatus, pkg, popup } from '../utils.js'
 const { Launch } = require('minecraft-java-core')
 const { shell, ipcRenderer } = require('electron')
+const Swal = require('sweetalert2')
+import { setBackground } from '../utils.js'
 
 class Home {
     static id = "home";
@@ -15,11 +17,21 @@ class Home {
         this.socialLick()
         this.instancesSelect()
         this.IniciarEstadoDiscord();
+        this.VersionPrematuraNotificacion();
 
     }
     async IniciarEstadoDiscord() {
         ipcRenderer.send('new-status-discord');
         document.querySelector('.settings-btn').addEventListener('click', e => changePanel('settings'))
+    }
+    async VersionPrematuraNotificacion() {
+        Swal.fire({
+            icon: "warning",
+            title: "Version prematura",
+            text: "Este launcher esta en su versión prematura. Si encuentras algun error reportelo en el servidor de Discord",
+            confirmButtonText: "Aceptar",
+            confirmButtonColor: "#66ED45",
+        });
     }
 
     async instanceselect() {
@@ -39,6 +51,7 @@ class Home {
             icon: "success",
             title: "Instancia Seleccionada!"
         });
+        setBackground();
     }
 
     async iniciarinstancia() {

@@ -7,11 +7,18 @@
 </head>
 
 <body>
+    <audio id="myAudio" src="assets/sounds/start.ogg" preload="auto" loop="false"></audio>
+    <script>
+        window.onload = function () {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
     <div id="splash" style="display:none">
-        <img class="splash" src="assets/images/icon.png" />
+        <img class="splash" src="assets/images/default/noBackground/orquidean.png" />
         <p class="splash-message"></p>
         <p class="splash-author"><span class="author"></span></p>
-        <p class="message">Buscando actualizaciones...</p>
+        <p class="message">Conectando con el servidor</p>
         <progress value="0" max="0" class="progress"></progress>
     </div>
     <script src="assets/js/index.js" type="module"></script>

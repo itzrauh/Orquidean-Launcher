@@ -25,14 +25,12 @@ async function setBackground(theme) {
     let background
     let body = document.body;
     body.className = theme ? 'dark global' : 'light global';
-    if (fs.existsSync(`${__dirname}/assets/images/background/dark/xd.png`)) {
-        let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/dark`);
-        let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-        background = `url(./assets/images/background/dark/${Background})`;
-    } else if (fs.existsSync(`${__dirname}/assets/images/background/${theme ? 'dark' : 'light'}`)) {
-        let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/${theme ? 'dark' : 'light'}`);
-        let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-        background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/${theme ? 'dark' : 'light'}/${Background})`;
+    if (fs.existsSync(`${__dirname}/assets/images/background/background.png`)) {
+        background = `url(./assets/images/background/background.png)`;
+    } else if (fs.existsSync(`${__dirname}/assets/images/background`)) {
+        background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/background.png)`;
+    } else if (instance.name = 'Run & Hunt') {
+        background = url('./assets/images/background/runHuntBackground.jpg')
     }
     body.style.backgroundImage = background ? background : theme ? '#000' : '#fff';
     body.style.backgroundSize = 'cover';

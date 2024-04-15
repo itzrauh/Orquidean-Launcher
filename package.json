@@ -1,5 +1,5 @@
 {
-    "name": "Orquidean-Launcher",
+    "name": "orquidean-launcher",
     "preductname": "Orquidean Launcher",
     "version": "1.1.1",
     "description": "Launcher oficial de Orquidean Studios",
@@ -9,12 +9,12 @@
         "email": "contact@itzrauh.xyz",
         "url": "https://github.com/raulgutveg"
     },
-    "url": "http://la1.cubenodes.cloud:25575/launcher/",
+    "url": "https://orquideanlauncher.000webhostapp.com/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=false --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/itzrauh/Orquidean-Launcher/master/src/assets/images/icon.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
