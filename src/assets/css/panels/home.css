@@ -263,6 +263,11 @@
     border-radius: 15px;
     height: 3.2rem;
     padding-right: 1.9rem;
+    transition: transform .1s;
+}
+
+.play-instance:hover {
+    transform: scale(1.05);
 }
 
 .play-btn {
@@ -295,6 +300,11 @@
     border-radius: 15px;
     padding: 0 0.5rem;
     cursor: pointer;
+    transition: transform .1s;
+}
+
+.instance-select:hover {
+    transform: scale(1.05);
 }
 
 .instance-select:before {

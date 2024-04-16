@@ -13,8 +13,6 @@ class Home {
     async init(config) {
         this.config = config;
         this.db = new database();
-        this.news()
-        this.socialLick()
         this.instancesSelect()
         this.IniciarEstadoDiscord();
         this.VersionPrematuraNotificacion();
@@ -28,7 +26,7 @@ class Home {
         Swal.fire({
             icon: "warning",
             title: "Version prematura",
-            text: "Este launcher esta en su versión prematura. Si encuentras algun error reportelo en el servidor de Discord",
+            text: "Este launcher esta en su versión prematura. Si encuentras algun error reportelo en el servidor de Discord, la instancia Test es de prueba, no contiene nada.",
             confirmButtonText: "Aceptar",
             confirmButtonColor: "#66ED45",
         });
@@ -72,88 +70,7 @@ class Home {
             title: "Iniciando Instancia!"
         });
     }
-    async news() {
-        let newsElement = document.querySelector('.news-list');
-        let news = await config.getNews().then(res => res).catch(err => false);
-        if (news) {
-            if (!news.length) {
-                let blockNews = document.createElement('div');
-                blockNews.classList.add('news-block');
-                blockNews.innerHTML = `
-                    <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/default/news/default.png">
-                        <div class="header-text">
-                            <div class="title">No hay noticias disponibles.</div>
-                        </div>
-                        <div class="date">
-                            <div class="day">X</div>
-                            <div class="month">Error</div>
-                        </div>
-                    </div>
-                    <div class="news-content">
-                        <div class="bbWrapper">
-                            <p>Desde aqui podras seguir todas las noticias.</p>
-                        </div>
-                    </div>`
-                newsElement.appendChild(blockNews);
-            } else {
-                for (let News of news) {
-                    let date = this.getdate(News.publish_date)
-                    let blockNews = document.createElement('div');
-                    blockNews.classList.add('news-block');
-                    blockNews.innerHTML = `
-                        <div class="news-header">
-                            <img class="server-status-icon" src="assets/images/default/news/default.png">
-                            <div class="header-text">
-                                <div class="title">${News.title}</div>
-                            </div>
-                            <div class="date">
-                                <div class="day">${date.day}</div>
-                                <div class="month">${date.month}</div>
-                            </div>
-                        </div>
-                        <div class="news-content">
-                            <div class="bbWrapper">
-                                <p>${News.content.replace(/\n/g, '</br>')}</p>
-                                <p class="news-author">Autor - <span>${News.author}</span></p>
-                            </div>
-                        </div>`
-                    newsElement.appendChild(blockNews);
-                }
-            }
-        } else {
-            let blockNews = document.createElement('div');
-            blockNews.classList.add('news-block');
-            blockNews.innerHTML = `
-                <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/default/news/default.png">
-                        <div class="header-text">
-                            <div class="title">Error al buscar Noticias</div>
-                        </div>
-                        <div class="date">
-                            <div class="day">X</div>
-                            <div class="month">Error</div>
-                        </div>
-                    </div>
-                    <div class="news-content">
-                        <div class="bbWrapper">
-                            <p>No se ha encontrado el repositorio de Noticias.</br>Reinicia el launcher si crees que es un error.</p>
-                        </div>
-                    </div>`
-            newsElement.appendChild(blockNews);
-        }
-    }
 
-
-    socialLick() {
-        let socials = document.querySelectorAll('.social-block')
-
-        socials.forEach(social => {
-            social.addEventListener('click', e => {
-                shell.openExternal(e.target.dataset.url)
-            })
-        });
-    }
 
     async instancesSelect() {
         let configClient = await this.db.readData('configClient')
