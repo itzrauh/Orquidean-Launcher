@@ -1,12 +1,14 @@
 .settings .container {
     display: flex;
     height: 100%;
+    background: transparent;
+    align-items: right;
 }
 
 .nav-settings {
     width: 20%;
     height: 100%;
-    background: var(--background);
+    background: var(--background-transparent);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -24,11 +26,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: transparent;
 }
 
 .nav-box #save {
     border: solid 4px var(--background-element);
     margin: 3rem;
+    background: transparent;
 }
 
 .nav-settings-btn {
@@ -84,7 +88,7 @@
     font-size: 2rem;
     margin: 1.5rem 0;
     padding: 0.5rem 2rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
     text-align: center;
     background: var(--background-transparent);
     color: var(--color);
@@ -120,7 +124,7 @@
 
 .account {
     background: var(--background-element);
-    border: solid 4px var(--background-element);
+    border: solid 4px var(--background-transparent);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -131,7 +135,7 @@
 }
 
 .account-select {
-    border: solid 4px var(--element-color);
+    border: solid 4px var(--background-transparent);
 }
 
 .accounts-list #add {

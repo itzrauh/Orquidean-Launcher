@@ -12,6 +12,8 @@ let dev = process.env.NODE_ENV === 'dev';
 class Splash {
     constructor() {
         this.splash = document.querySelector(".splash");
+        var audio = new Audio('assets/sound/start.ogg');
+        audio.play();
         this.splashMessage = document.querySelector(".splash-message");
         this.splashAuthor = document.querySelector(".splash-author");
         this.message = document.querySelector(".message");

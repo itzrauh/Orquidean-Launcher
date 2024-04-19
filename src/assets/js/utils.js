@@ -17,10 +17,7 @@ import slider from './utils/slider.js';
 
 async function setBackground(theme) {
     if (typeof theme == 'undefined') {
-        let databaseLauncher = new database();
-        let configClient = await databaseLauncher.readData('configClient');
-        theme = configClient?.launcher_config?.theme || "auto"
-        theme = await ipcRenderer.invoke('is-dark-theme', theme).then(res => res)
+        theme = 'dark global'
     }
     let background
     let body = document.body;
@@ -29,7 +26,7 @@ async function setBackground(theme) {
         background = `url(./assets/images/background/background.png)`;
     } else if (fs.existsSync(`${__dirname}/assets/images/background`)) {
         background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/background.png)`;
-    } else if (instance.name = 'Run & Hunt') {
+    } else if (theme = 'Run&Hunt') {
         background = url('./assets/images/background/runHuntBackground.jpg')
     }
     body.style.backgroundImage = background ? background : theme ? '#000' : '#fff';
@@ -72,12 +69,6 @@ async function accountSelect(data) {
 
     if (activeAccount) activeAccount.classList.toggle('account-select');
     account.classList.add('account-select');
-    if (data.meta.type == 'Xbox') headplayer(data.profile.skins[0].base64);
-}
-
-async function headplayer(skinBase64) {
-    let skin = await new skin2D().creatHeadTexture(skinBase64);
-    document.querySelector(".player-head").style.backgroundImage = `url(${skin})`;
 }
 
 async function setStatus(opt) {

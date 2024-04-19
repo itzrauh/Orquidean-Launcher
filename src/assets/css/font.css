@@ -28,6 +28,13 @@
 }
 
 @font-face {
+    font-family: 'special-icons';
+    src: url('../fonts/special-icon.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Social-icons';
     src: url('../fonts/social-icons.woff2') format('woff2');
     font-weight: normal;
@@ -46,6 +53,11 @@
     text-transform: none;
     line-height: 1em;
     -webkit-font-smoothing: antialiased;
+}
+
+.icon-list2:before {
+    font-family: "special-icons";
+    content: "\e9bb";
 }
 
 .icon-close:before {

@@ -32,7 +32,7 @@ class Home {
         });
     }
 
-    async instanceselect() {
+    async instanceselect(instance) {
         const Toast = Swal.mixin({
             toast: true,
             showCloseButton: true,
@@ -47,9 +47,11 @@ class Home {
         });
         Toast.fire({
             icon: "success",
-            title: "Instancia Seleccionada!"
+            title: "¡Instancia seleccionada!"
         });
-        setBackground();
+        if (instance = 'Run & Hunt') {
+            setBackground('Run&Hunt');
+        }
     }
 
     async iniciarinstancia() {
@@ -67,7 +69,7 @@ class Home {
         });
         Toast.fire({
             icon: "success",
-            title: "Iniciando Instancia!"
+            title: "¡Iniciando Instancia!"
         });
     }
 
@@ -82,7 +84,6 @@ class Home {
         let instancePopup = document.querySelector('.instance-popup')
         let instancesListPopup = document.querySelector('.instances-List')
         let instanceCloseBTN = document.querySelector('.close-popup')
-
         if (instancesList.length === 1) {
             document.querySelector('.instance-select').style.display = 'none'
             instanceBTN.style.paddingRight = '0'
@@ -122,7 +123,8 @@ class Home {
 
                 if (activeInstanceSelect) activeInstanceSelect.classList.toggle('active-instance');
                 e.target.classList.add('active-instance');
-                this.instanceselect()
+                let actualInstance = newInstanceSelect
+                this.instanceselect(actualInstance)
 
                 configClient.instance_selct = newInstanceSelect
                 await this.db.updateData('configClient', configClient)
@@ -135,6 +137,7 @@ class Home {
         })
 
         instanceBTN.addEventListener('click', async e => {
+            console.log(e)
             let configClient = await this.db.readData('configClient')
             let instanceSelect = configClient.instance_selct
             let auth = await this.db.readData('accounts', configClient.account_selected)
@@ -164,7 +167,9 @@ class Home {
                 instancePopup.style.display = 'flex'
             }
 
-            if (!e.target.classList.contains('instance-select')) this.startGame()
+            if (e.target.classList.contains('play-btn')) {
+                this.startGame()
+            }
         })
 
         instanceCloseBTN.addEventListener('click', () => instancePopup.style.display = 'none')
@@ -177,7 +182,8 @@ class Home {
         let authenticator = await this.db.readData('accounts', configClient.account_selected)
         let options = instance.find(i => i.name == configClient.instance_selct)
 
-        let playInstanceBTN = document.querySelector('.play-instance')
+        let playInstanceBTN = document.querySelector('.play-btn')
+        let elements = document.querySelector('.play-instance')
         this.iniciarinstancia()
         let infoStartingBOX = document.querySelector('.info-starting-game')
         let infoStarting = document.querySelector(".info-starting-game-text")
@@ -219,12 +225,12 @@ class Home {
 
         launch.Launch(opt);
 
-        playInstanceBTN.style.display = "none"
-        infoStartingBOX.style.display = "block"
+        elements.style.display = "none";
+        infoStartingBOX.style.display = "block";
         playInstanceBTN.style.top = "20%";
         progressBar.style.display = "";
         ipcRenderer.send('main-window-progress-load')
-        ipcRenderer.send('new-status-discord-jugando', `Jugando a ${options.name}...`)
+        ipcRenderer.send('new-status-discord-jugando', `Jugando a ${options.name}`)
 
         launch.on('extract', extract => {
             ipcRenderer.send('main-window-progress-load')
@@ -277,10 +283,10 @@ class Home {
             if (configClient.launcher_config.closeLauncher == 'close-launcher') {
                 ipcRenderer.send("main-window-show")
             };
-            ipcRenderer.send('delete-and-new-status-discord');
+            ipcRenderer.send('delete-and-new-status-discord')
             ipcRenderer.send('main-window-progress-reset')
-            infoStartingBOX.style.display = "none"
-            playInstanceBTN.style.display = "flex"
+            infoStartingBOX.style.display = "none";
+            elements.style.display = "flex";
             infoStarting.innerHTML = `Launcher en espera...`
             new logger(pkg.name, '#7289da');
             console.log('Close');

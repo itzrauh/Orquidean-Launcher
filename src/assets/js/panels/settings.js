@@ -72,8 +72,8 @@ class Settings {
 
                 if (e.target.classList.contains("delete-profile")) {
                     popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
+                        title: 'Conexión',
+                        content: 'Espere por favor...',
                         color: 'var(--color)'
                     })
                     await this.db.deleteData('accounts', id);

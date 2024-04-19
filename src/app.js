@@ -78,7 +78,7 @@ ipcMain.on('new-status-discord', async () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
             activity: {
-                details: `En el Menú Inicial...`,
+                details: `En el Menú Inicial.`,
                 assets: {
                     large_image: 'icon',
                     large_text: 'Orquidean Launcher',
@@ -123,7 +123,7 @@ ipcMain.on('delete-and-new-status-discord', async () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
             activity: {
-                details: 'En el Menú Inicial...',
+                details: 'En el Menú Inicial.',
                 assets: {
                     large_image: 'icon',
                     large_text: 'Orquidean Launcher',
