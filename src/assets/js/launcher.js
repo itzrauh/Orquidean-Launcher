@@ -51,8 +51,8 @@ class Launcher {
 
     errorConnect() {
         new popup().openPopup({
-            title: this.config.error.code,
-            content: this.config.error.message,
+            title: 'Error',
+            content: 'No hemos podido conectarte con el servidor de el launcher, intentalo más tarde.',
             color: 'red',
             exit: true,
             options: true

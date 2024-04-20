@@ -230,7 +230,7 @@ class Home {
         playInstanceBTN.style.top = "20%";
         progressBar.style.display = "";
         ipcRenderer.send('main-window-progress-load')
-        ipcRenderer.send('new-status-discord-jugando', `Jugando a ${options.name}`)
+        ipcRenderer.send('new-status-discord-jugando', `Jugando a ${options.name}.`)
 
         launch.on('extract', extract => {
             ipcRenderer.send('main-window-progress-load')

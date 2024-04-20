@@ -5,6 +5,7 @@
     align-items: center;
 }
 
+
 /*******************************************************************************
  *                                                                             *
  * Status server                                                               *
@@ -16,14 +17,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--background-transparent);
+    background: rgba(100, 100, 100, .5);
     width: 25rem;
     height: 3rem;
     color: var(--color);
     margin-top: 3rem;
     padding: 1rem;
     text-align: center;
-    border: solid 2px #a8a8a8;
+    border: solid 2px #bababa;
     color: #ffffff;
     border-radius: 13px;
     -webkit-border-radius: 13px;
@@ -281,7 +282,7 @@
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
     border-radius: 13px;
-    font: 14px Poppins;
+    font: 14px 'Poppins';
     color: #ffffff;
     background: transparent;
     -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;

@@ -22,6 +22,7 @@ class Settings {
 
     navBTN() {
         document.querySelector('.nav-box').addEventListener('click', e => {
+            console.log(e.target.id)
             if (e.target.classList.contains('nav-settings-btn')) {
                 let id = e.target.id
 
@@ -39,9 +40,11 @@ class Settings {
 
                 if (activeSettingsBTN) activeSettingsBTN.classList.toggle('active-settings-BTN');
                 e.target.classList.add('active-settings-BTN');
-
+                console.log(activeSettingsBTN)
+                console.log(activeContainerSettings)
                 if (activeContainerSettings) activeContainerSettings.classList.toggle('active-container-settings');
                 document.querySelector(`#${id}-tab`).classList.add('active-container-settings');
+                e.target.classList.add('active-container-settings');
             }
         })
     }
@@ -65,6 +68,7 @@ class Settings {
 
                     let account = await this.db.readData('accounts', id);
                     let configClient = await this.setInstance(account);
+                    console.log(account.name)
                     await accountSelect(account);
                     configClient.account_selected = account.ID;
                     return await this.db.updateData('configClient', configClient);

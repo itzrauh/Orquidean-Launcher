@@ -72,13 +72,13 @@ const pkg = require('../package.json');
 
 let startedAppTime = Date.now();
 
-ipcMain.on('new-status-discord', async () => {
+ipcMain.on('new-status-discord', async (username) => {
     client.login({ clientId: '1209514395454017616' });
     client.on('ready', () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
             activity: {
-                details: `En el Menú Inicial.`,
+                details: `En el Menú inicial.`,
                 assets: {
                     large_image: 'icon',
                     large_text: 'Orquidean Launcher',
@@ -93,7 +93,7 @@ ipcMain.on('new-status-discord', async () => {
 });
 
 
-ipcMain.on('new-status-discord-jugando', async (event, statusdiscord) => {
+ipcMain.on('new-status-discord-jugando', async (event, statusdiscord, username) => {
     console.log(statusdiscord)
     if (client) await client.destroy();
     client.login({ clientId: '1209514395454017616' });
@@ -101,7 +101,7 @@ ipcMain.on('new-status-discord-jugando', async (event, statusdiscord) => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
             activity: {
-                details: statusdiscord,
+                details: `Jugando a ${statusdiscord}`,
                 assets: {
                     large_image: 'icon',
                     large_text: 'Orquidean Launcher',
@@ -115,7 +115,7 @@ ipcMain.on('new-status-discord-jugando', async (event, statusdiscord) => {
     });
 });
 
-ipcMain.on('delete-and-new-status-discord', async () => {
+ipcMain.on('delete-and-new-status-discord', async (username) => {
     if (client) client.destroy();
     client = new rpc.Client({ transport: 'ipc' });
     client.login({ clientId: '1209514395454017616' });
@@ -123,7 +123,7 @@ ipcMain.on('delete-and-new-status-discord', async () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
             activity: {
-                details: 'En el Menú Inicial.',
+                details: `En el Menú Inicial.`,
                 assets: {
                     large_image: 'icon',
                     large_text: 'Orquidean Launcher',
