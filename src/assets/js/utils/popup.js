@@ -16,8 +16,8 @@ export default class popup {
 
     openPopup(info) {
         this.popup.style.display = 'flex';
-        if (info.background == false) this.popup.style.background = 'none';
-        else this.popup.style.background = '#000000b3'
+        if (info.background == false) this.popup.style.background = 'transparent';
+        else this.popup.style.background = 'transparent'
         this.popupTitle.innerHTML = info.title;
         this.popupContent.style.color = info.color ? info.color : '#e21212';
         this.popupContent.innerHTML = info.content;

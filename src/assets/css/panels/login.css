@@ -7,11 +7,27 @@
 
 .login-tabs {
     position: absolute;
-    padding: 15px;
-    background: var(--background);
-    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(100, 100, 100, .5);
+    width: 30rem;
+    height: 6rem;
+    color: var(--color);
+    margin-top: 3rem;
+    padding: 1rem;
     text-align: center;
-    min-width: 40%;
+    border: solid 2px #bababa;
+    color: #ffffff;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px -20px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
 }
 
 .login-home,
@@ -22,18 +38,53 @@
 }
 
 .login-text {
-    font-size: 1.3rem;
+    font-size: 20px;
+    font: 'Poppins';
 }
 
 .connect,
 .cancel {
-    background: none;
-    color: var(--color);
-    border: solid 4px var(--element-color);
-    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
     padding: 0.3rem 4rem;
-    font-size: inherit;
-    font-weight: bold;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 14px 'Poppins';
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin: 15px 10px;
+}
+
+.connect:hover,
+.cancel:hover {
+    padding: 0.3rem 4rem;
+    border: solid 2px #a8a8a8;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font: 14px Poppins;
+    color: #ffffff;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    -moz-box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    box-shadow: 0px 0px 20px #bababa, inset 0px 0px 1px #ffffff;
+    opacity: 0.6;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: alpha(opacity=60);
+    text-shadow: 0px 0px 20px #bababa;
+    filter: dropshadow(color=#bababa, offx=0, offy=0);
+    transform: scale(1.05);
     margin: 15px 10px;
 }
 

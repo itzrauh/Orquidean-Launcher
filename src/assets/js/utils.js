@@ -26,8 +26,8 @@ async function setBackground(theme) {
         background = `url(./assets/images/background/background.png)`;
     } else if (fs.existsSync(`${__dirname}/assets/images/background`)) {
         background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/background.png)`;
-    } else if (theme = 'Run&Hunt') {
-        background = url('./assets/images/background/runHuntBackground.jpg')
+    } else if (theme = 'SupervivenciaEnJaén') {
+        background = url('./assets/images/background/supervivenciaEnJaen.jpg')
     }
     body.style.backgroundImage = background ? background : theme ? '#000' : '#fff';
     body.style.backgroundSize = 'cover';

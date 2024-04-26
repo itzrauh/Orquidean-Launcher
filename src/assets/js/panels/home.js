@@ -49,8 +49,8 @@ class Home {
             icon: "success",
             title: "¡Instancia seleccionada!"
         });
-        if (instance = 'Run & Hunt') {
-            setBackground('Run&Hunt');
+        if (instance = 'Supervivencia en Jaén') {
+            setBackground('SupervivenciaEnJaén');
         }
     }
 
