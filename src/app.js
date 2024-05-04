@@ -71,9 +71,10 @@ let client = new rpc.Client({ transport: 'ipc' });
 const pkg = require('../package.json');
 
 let startedAppTime = Date.now();
+let discordClientId = '1211684274827296778';
 
 ipcMain.on('new-status-discord', async (username) => {
-    client.login({ clientId: '1209514395454017616' });
+    client.login({ clientId: discordClientId });
     client.on('ready', () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
@@ -81,7 +82,7 @@ ipcMain.on('new-status-discord', async (username) => {
                 details: `En el Menú inicial.`,
                 assets: {
                     large_image: 'icon',
-                    large_text: 'Orquidean Launcher',
+                    large_text: 'Bananus Launcher',
                 },
                 instance: true,
                 timestamps: {
@@ -96,7 +97,7 @@ ipcMain.on('new-status-discord', async (username) => {
 ipcMain.on('new-status-discord-jugando', async (event, statusdiscord, username) => {
     console.log(statusdiscord)
     if (client) await client.destroy();
-    client.login({ clientId: '1209514395454017616' });
+    client.login({ clientId: discordClientId });
     client.on('ready', () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
@@ -104,7 +105,7 @@ ipcMain.on('new-status-discord-jugando', async (event, statusdiscord, username) 
                 details: `Jugando a ${statusdiscord}`,
                 assets: {
                     large_image: 'icon',
-                    large_text: 'Orquidean Launcher',
+                    large_text: 'Bananus Launcher',
                 },
                 instance: true,
                 timestamps: {
@@ -118,7 +119,7 @@ ipcMain.on('new-status-discord-jugando', async (event, statusdiscord, username) 
 ipcMain.on('delete-and-new-status-discord', async (username) => {
     if (client) client.destroy();
     client = new rpc.Client({ transport: 'ipc' });
-    client.login({ clientId: '1209514395454017616' });
+    client.login({ clientId: discordClientId });
     client.on('ready', () => {
         client.request('SET_ACTIVITY', {
             pid: process.pid,
@@ -126,7 +127,7 @@ ipcMain.on('delete-and-new-status-discord', async (username) => {
                 details: `En el Menú Inicial.`,
                 assets: {
                     large_image: 'icon',
-                    large_text: 'Orquidean Launcher',
+                    large_text: 'Bananus Launcher',
                 },
                 instance: true,
                 timestamps: {

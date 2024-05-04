@@ -31,7 +31,27 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Orquidean Launcher by", "author": "itzrauh" }
+            { "message": "Bananus Launcher by", "author": "itzrauh" },
+            { "message": "el enano de blancanieves es", "author": "itzrauh" },
+            { "message": "furulaa yey", "author": "itzrauh" },
+            { "message": "te juro esto no es un virus", "author": "itzrauh" },
+            { "message": "Si duermes en el nether recuperaras vida", "author": "Rey_de_Olimpia" },
+            { "message": "A los monnos les gustan las bananas", "author": "Rey_de_Olimpia" },
+            { "message": "la mejor defensa es huir", "author": "Rey_de_Olimpia" },
+            { "message": "Si corres tendras hambre", "author": "Rey_de_Olimpia" },
+            { "message": "si tienes hambre eres Boliviano", "author": "Rey_de_Olimpia" },
+            { "message": "los esqueletos usan hacks", "author": "Rey_de_Olimpia" },
+            { "message": "el pixelmon es basura", "author": "Rey_de_Olimpia" },
+            { "message": "No pidas creativo pinche niño miado", "author": "Rey_de_Olimpia" },
+            { "message": "que pendejo el que invento la palabra pendejo", "author": "josejuanglez" },
+            { "message": "Arbol de abedul", "author": "octubram" },
+            { "message": "hay pocos mods de comida", "author": "itzrauh" },
+            { "message": "Larga vida al imperio Italiano", "author": "Rey_de_Olimpia" },
+            { "message": "Debes comer e hidratarte", "author": "Rey_de_Olimpia" },
+            { "message": "Ojala los colombianos invadan inglaterra", "author": "Rey_de_Olimpia" },
+            { "message": "No se dice Octubram se dice octubre", "author": "Rey_de_Olimpia" },
+            { "message": "No juegues pixelmon puto desgraciado", "author": "Rey_de_Olimpia" },
+            { "message": "salsa de tomate", "author": "itzrauh" },
         ];
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;

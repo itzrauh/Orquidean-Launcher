@@ -49,8 +49,8 @@ class Home {
             icon: "success",
             title: "¡Instancia seleccionada!"
         });
-        if (instance = 'Supervivencia en Jaén') {
-            setBackground('SupervivenciaEnJaén');
+        if (instance = 'Cobblemon') {
+            setBackground('Cobblemon');
         }
     }
 

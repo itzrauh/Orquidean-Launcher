@@ -1,15 +1,15 @@
 {
-    "name": "orquidean-launcher",
-    "preductname": "Orquidean Launcher",
-    "version": "1.4.0",
-    "description": "Launcher oficial de Orquidean Studios",
+    "name": "bananus-launcher",
+    "preductname": "Bananus Launcher",
+    "version": "3.1.0",
+    "description": "Launcher oficial de Bananus",
     "main": "src/app.js",
     "author": {
         "name": "itzrauh",
         "email": "contact@itzrauh.xyz",
         "url": "https://github.com/raulgutveg"
     },
-    "url": "https://orquideanlauncher.000webhostapp.com/",
+    "url": "https://bananuslauncher.000webhostapp.com/launcher/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
@@ -24,24 +24,24 @@
     "dependencies": {
         "@sweetalert2/theme-dark": "^5.0.16",
         "discord-rpc": "^4.0.1",
-        "electron-updater": "^6.1.4",
-        "minecraft-java-core": "^3.8.1",
+        "electron-updater": "^6.1.8",
+        "minecraft-java-core": "^3.9.1",
         "node-bdd": "^2.0.3",
-        "node-fetch": "^2.7.0",
+        "node-fetch": "^3.3.2",
         "sweetalert2": "^11.10.8",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^27.0.4",
-        "electron-builder": "^24.6.4",
+        "electron": "^30.0.2",
+        "electron-builder": "^24.13.3",
         "javascript-obfuscator": "^4.1.0",
-        "jimp": "^0.22.10",
-        "nodemon": "^3.0.1",
+        "jimp": "^0.22.12",
+        "nodemon": "^3.1.0",
         "png2icons": "^2.0.1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/itzrauh/Orquidean-Launcher.git"
+        "url": "git+https://github.com/itzrauh/Bananus-Launcher.git"
     }
 }
